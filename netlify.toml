@@ -1,0 +1,32 @@
+[build]
+  publish = "."
+  command = ""
+
+# Cache headers kept short/no-cache while the site is still being actively
+# revised. Once content stabilizes (and ideally once CSS/JS/image filenames
+# are content-hashed), these can be safely lengthened to something like
+# "public, max-age=31536000, immutable" for /css/*, /js/*, /images/*.
+# Until then, long caching here would hide any future edit from returning
+# visitors, since the filenames don't change when the content does.
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=300"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=300"
+
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"

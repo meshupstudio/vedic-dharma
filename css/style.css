@@ -1,0 +1,471 @@
+/* ==========================================================================
+   Vedic Dharma / James Kalomiris — brand tokens
+   Colors pulled from the original Duda export's page-specific
+   --color_1.._4 custom properties (Pages/desktop/home/style.css).
+   ========================================================================== */
+
+@font-face {
+  font-family: "Ex Libris";
+  src: url("../fonts/exlibris-bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --color-ink: rgba(0, 0, 0, 1);       /* --color_1 */
+  --color-cream: rgba(250, 247, 240, 1); /* --color_2 */
+  --color-gold: rgba(246, 186, 44, 1);   /* --color_3 */
+  --color-ink-soft: rgba(0, 0, 0, 0.7);  /* --color_4 */
+
+  --font-display: "Ex Libris", Georgia, "Times New Roman", serif;
+  --font-body: "Epilogue", Arial, sans-serif;
+
+  --max-width: 1120px;
+  --radius: 6px;
+  --shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--color-ink);
+  background: var(--color-cream);
+  line-height: 1.6;
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: inherit; }
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section { padding: 72px 0; }
+
+.exlibris { font-family: var(--font-display); font-weight: 700; }
+
+.section-title {
+  text-align: center;
+  font-size: clamp(28px, 4vw, 40px);
+  margin: 0 0 40px;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--color-gold);
+  color: var(--color-ink);
+  padding: 10px 16px;
+  z-index: 1000;
+}
+.skip-link:focus { left: 8px; top: 8px; }
+
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Netlify honeypot field */
+.hidden-field { position: absolute; left: -9999px; }
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+
+.btn {
+  display: inline-block;
+  padding: 14px 32px;
+  border-radius: var(--radius);
+  font-weight: 600;
+  text-decoration: none;
+  border: 2px solid transparent;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: var(--font-body);
+}
+
+.btn-primary {
+  background: var(--color-gold);
+  color: var(--color-ink);
+}
+.btn-primary:hover { background: #e0a821; }
+
+.btn-buy {
+  background: var(--color-ink);
+  color: var(--color-cream);
+  width: 100%;
+  text-align: center;
+}
+.btn-buy:hover { background: #2a2a2a; }
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--color-cream);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+.header-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--color-ink);
+}
+
+.brand-logo {
+  width: 48px;
+  height: auto;
+  border-radius: 4px;
+}
+
+.brand-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.site-nav {
+  display: flex;
+  gap: 24px;
+}
+
+.site-nav a {
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 15px;
+  padding: 6px 0;
+  border-bottom: 2px solid transparent;
+}
+.site-nav a:hover { border-bottom-color: var(--color-gold); }
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+.nav-toggle span {
+  display: block;
+  height: 2px;
+  background: var(--color-ink);
+  border-radius: 2px;
+}
+
+/* ==========================================================================
+   Hero
+   ========================================================================== */
+
+.hero {
+  padding: 96px 24px;
+  text-align: center;
+  background: linear-gradient(180deg, var(--color-cream) 0%, #fff 100%);
+}
+
+.hero-inner { max-width: 720px; margin: 0 auto; }
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+  color: var(--color-ink-soft);
+  font-size: 14px;
+  margin: 0 0 12px;
+}
+
+.hero h1 {
+  font-size: clamp(40px, 7vw, 72px);
+  margin: 0 0 20px;
+}
+
+.hero-lede {
+  font-size: 19px;
+  color: var(--color-ink-soft);
+  margin: 0 0 32px;
+}
+
+/* ==========================================================================
+   The Secret / intro section
+   ========================================================================== */
+
+.secret-section h2 { font-size: clamp(24px, 3.5vw, 32px); margin: 40px 0 12px; }
+.secret-section h2:first-child { margin-top: 0; }
+.secret-section .container { max-width: 760px; text-align: center; }
+
+/* ==========================================================================
+   Books
+   ========================================================================== */
+
+.books-section { background: #fff; }
+
+.badge-soon-inline {
+  display: block;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 15px;
+  color: var(--color-ink-soft);
+  margin-top: 6px;
+}
+
+.books-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 32px;
+  margin-bottom: 56px;
+}
+
+.book-card {
+  background: var(--color-cream);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+}
+
+.book-card img { width: 100%; height: auto; }
+
+.book-cover-wrap { position: relative; }
+
+.badge-soon {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: var(--color-ink);
+  color: var(--color-cream);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 6px 10px;
+  border-radius: 999px;
+}
+
+.book-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.book-kicker {
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: var(--color-ink-soft);
+  margin: 0;
+}
+
+.book-body h3 { font-size: 22px; margin: 0; }
+
+.book-sub {
+  font-style: italic;
+  color: var(--color-ink-soft);
+  margin: 0 0 4px;
+  font-size: 14px;
+}
+
+.book-body p:not(.book-kicker):not(.book-sub) { flex: 1; margin: 0 0 12px; font-size: 15px; }
+
+.book-card-soon { opacity: 0.92; }
+
+/* ==========================================================================
+   Reviews
+   ========================================================================== */
+
+.reviews-section { background: var(--color-cream); }
+
+.reviews-group { max-width: 760px; margin: 0 auto 40px; }
+.reviews-group h3 { font-size: 20px; margin: 0 0 16px; }
+
+.reviews-group blockquote {
+  margin: 0 0 20px;
+  padding: 20px 24px;
+  background: #fff;
+  border-left: 4px solid var(--color-gold);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  font-size: 15px;
+}
+
+.reviews-group cite {
+  display: block;
+  margin-top: 10px;
+  font-style: normal;
+  font-size: 13px;
+  color: var(--color-ink-soft);
+}
+
+/* ==========================================================================
+   About
+   ========================================================================== */
+
+.about-section { background: #fff; }
+.about-section .container { max-width: 720px; text-align: center; }
+.about-name { font-weight: 600; font-size: 17px; }
+
+/* ==========================================================================
+   Contact
+   ========================================================================== */
+
+.contact-section {
+  background: var(--color-ink);
+  color: var(--color-cream);
+  position: relative;
+  padding-bottom: 72px;
+}
+
+.contact-section .container {
+  max-width: 640px;
+  text-align: center;
+  padding-top: 24px;
+}
+
+.contact-section h2 { color: var(--color-cream); }
+.contact-section a { color: var(--color-gold); }
+
+.grunge { width: 100%; height: auto; display: block; }
+.grunge-top { margin-bottom: -1px; }
+.grunge-bottom { margin-top: -1px; }
+
+.subscribe-label {
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-weight: 600;
+  margin-top: 32px;
+}
+
+.subscribe-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.subscribe-form input[type="text"],
+.subscribe-form input[type="email"] {
+  flex: 1 1 220px;
+  padding: 12px 14px;
+  border-radius: var(--radius);
+  border: none;
+  font-size: 15px;
+  font-family: var(--font-body);
+}
+
+.form-status { font-size: 14px; margin-top: 4px; }
+.form-status.success { color: var(--color-gold); }
+.form-status.error { color: #ff8787; }
+
+.social-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.social-row a { text-decoration: none; font-weight: 600; font-size: 14px; }
+.social-row a:hover { color: var(--color-gold); }
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+.site-footer {
+  text-align: center;
+  padding: 24px;
+  font-size: 13px;
+  color: var(--color-ink-soft);
+  background: var(--color-cream);
+}
+
+/* ==========================================================================
+   Scroll reveal
+   ========================================================================== */
+
+/* Content is visible by default so it never depends on JS running.
+   JS opts elements into ".pre-reveal" (hidden) only for what's below the
+   fold at load time, then reveals them as they scroll into view. */
+.reveal {
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.pre-reveal {
+  opacity: 0;
+  transform: translateY(16px);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal.pre-reveal { opacity: 1; transform: none; transition: none; }
+  html { scroll-behavior: auto; }
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 800px) {
+  .nav-toggle { display: flex; }
+
+  .site-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--color-cream);
+    flex-direction: column;
+    gap: 0;
+    max-height: 0;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    transition: max-height 0.3s ease;
+  }
+
+  .site-nav.is-open { max-height: 480px; }
+
+  .site-nav a {
+    padding: 14px 24px;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+
+  .section { padding: 56px 0; }
+}
